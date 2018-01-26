@@ -1,6 +1,10 @@
 package com.example.demo;
 
-import org.junit.jupiter.api.*;
+import org.junit.Ignore;
+import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,11 +16,11 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-@ExtendWith(SpringExtension.class)
+//@ExtendWith(SpringExtension.class)
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @AutoConfigureMockMvc
-public class DemoApplicationTests {
+public class DemoJUnit4Tests {
 
     @Autowired
     MockMvc mockMvc;
@@ -39,7 +43,7 @@ public class DemoApplicationTests {
 
 
     @Test
-    @Disabled
+    @Ignore
     public void testHellos() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/hello"))
                 .andExpect(MockMvcResultMatchers.status().is4xxClientError());
